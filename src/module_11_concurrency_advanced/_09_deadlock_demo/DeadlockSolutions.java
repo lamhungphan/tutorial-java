@@ -9,16 +9,16 @@ public class DeadlockSolutions {
     static final ReentrantLock L2 = new ReentrantLock();
 
     // SOLUTION 1: lock ordering — luôn lấy theo cùng thứ tự (sort by id/hashCode).
-    static void transferOrdered(Account from, Account to, int amount) {
-        Account first  = from.id < to.id ? from : to;
-        Account second = from.id < to.id ? to   : from;
-        synchronized (first) {
-            synchronized (second) {
-                from.balance -= amount;
-                to.balance   += amount;
-            }
-        }
-    }
+//    static void transferOrdered(Account from, Account to, int amount) {
+//        Account first  = from.id < to.id ? from : to;
+//        Account second = from.id < to.id ? to   : from;
+//        synchronized (first) {
+//            synchronized (second) {
+//                from.balance -= amount;
+//                to.balance   += amount;
+//            }
+//        }
+//    }
     record Account(int id, long balance) {     // dùng record cho id; balance mutable thì cần class
         // chỉ minh hoạ thứ tự — thực tế balance là field mutable nên dùng class:
     }

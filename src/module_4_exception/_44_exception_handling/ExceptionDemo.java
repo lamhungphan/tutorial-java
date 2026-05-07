@@ -3,7 +3,7 @@ package module_4_exception._44_exception_handling;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Main {
+public class ExceptionDemo {
     public static void main(String[] args) {
         // exception =  an event that occurs during the execution of a program that,
         //              disrupts the normal flow of instructions
@@ -20,15 +20,16 @@ public class Main {
             System.out.print("Result: " + z);
         }
         catch(ArithmeticException e){
-            System.out.println("You can't divide by zero! IDIOT!!");
+            System.err.println("You can't divide by zero! IDIOT!!");
         }
         catch(InputMismatchException e){
-            System.out.println("PLEASE enter a number!!!");
+            System.err.println("PLEASE enter a number!!!");
         }
         catch(Exception e){
             System.out.println("Something went wrong");
         }
         finally {
+            System.out.println("Program has been closed");
             sc.close();
         }
     }
